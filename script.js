@@ -24,7 +24,6 @@ function crearBloqueInvitado(numero) {
   const botonEliminar = document.createElement('button');
   botonEliminar.type = 'button';
   botonEliminar.className = 'boton-eliminar';
-  botonEliminar.setAttribute('aria-label', `Eliminar invitado ${numero}`);
   botonEliminar.textContent = '✕';
 
   encabezado.append(titulo, botonEliminar);
@@ -35,17 +34,17 @@ function crearBloqueInvitado(numero) {
     <label class="campo">
       <span class="etiqueta">Nombre completo</span>
       <input type="text" class="entrada-nombre" placeholder="Nombre y apellidos">
-      <span class="error" aria-live="polite" hidden></span>
+      <span class="error" hidden></span>
     </label>
     <label class="campo">
       <span class="etiqueta">Correo electrónico</span>
       <input type="email" class="entrada-correo" placeholder="correo@dominio.com">
-      <span class="error" aria-live="polite" hidden></span>
+      <span class="error" hidden></span>
     </label>
     <label class="campo">
       <span class="etiqueta">Teléfono</span>
       <input type="tel" class="entrada-telefono" placeholder="(+51) 999 999 999">
-      <span class="error" aria-live="polite" hidden></span>
+      <span class="error" hidden></span>
     </label>
     <label class="campo">
       <span class="etiqueta">Relación</span>
@@ -56,7 +55,7 @@ function crearBloqueInvitado(numero) {
         <option value="trabajo">Trabajo</option>
         <option value="otro">Otro</option>
       </select>
-      <span class="error" aria-live="polite" hidden></span>
+      <span class="error" hidden></span>
     </label>
   `;
 
@@ -72,7 +71,6 @@ function renumerarInvitados() {
   obtenerBloques().forEach((bloque, indice) => {
     const numero = indice + 1;
     bloque.querySelector('.titulo-invitado').textContent = `Invitado ${numero}`;
-    bloque.querySelector('.boton-eliminar').setAttribute('aria-label', `Eliminar invitado ${numero}`);
   });
 }
 
@@ -155,7 +153,7 @@ function validarBloque(bloque) {
   }
   if (!telefono.value.trim()) {
     marcarError(telefono, 'Este campo es obligatorio.'); ok = false;
-  } else if (contarDigitos(telefono.value) < 9) {
+  } else if (contarDigitos(telefono.value) < 8) {
     marcarError(telefono, 'Debe tener al menos 9 dígitos.'); ok = false;
   }
   if (!relacion.value) {

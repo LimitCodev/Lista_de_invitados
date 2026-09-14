@@ -11,29 +11,29 @@
     <h1>Lista de Invitados</h1>
     <p class="subtitulo-app">Registra y organiza los asistentes a tu evento</p>
 
-    <section class="tarjeta" aria-labelledby="titulo-evento">
-      <h2 id="titulo-evento">Datos del evento</h2>
+    <section class="tarjeta">
+      <h2>Datos del evento</h2>
       <div class="campos-evento">
         <div class="campo">
           <label for="nombreEvento">Nombre del evento</label>
           <input type="text" id="nombreEvento" placeholder="Ejm: Cumpleaños de Josue">
-          <p class="error" aria-live="polite" hidden></p>
+          <p class="error" hidden></p>
         </div>
         <div class="campo">
           <label for="fechaEvento">Fecha</label>
           <input type="date" id="fechaEvento">
-          <p class="error" aria-live="polite" hidden></p>
+          <p class="error" hidden></p>
         </div>
         <div class="campo">
           <label for="lugarEvento">Lugar</label>
           <input type="text" id="lugarEvento" placeholder="Ejm: UNAC, tu casa y etc">
-          <p class="error" aria-live="polite" hidden></p>
+          <p class="error" hidden></p>
         </div>
       </div>
     </section>
 
-    <section class="tarjeta" aria-labelledby="titulo-invitados">
-      <h2 id="titulo-invitados">Invitados</h2>
+    <section class="tarjeta">
+      <h2>Invitados</h2>
       <div class="control-invitados">
         <label class="campo">
           <span class="etiqueta">Cantidad de invitados</span>
@@ -41,7 +41,7 @@
         </label>
         <button type="button" id="agregarInvitados">Agregar invitados</button>
       </div>
-      <p class="error lista-error" id="error-lista" aria-live="polite" hidden>Agrega al menos un invitado antes de guardar.</p>
+      <p class="error lista-error" id="error-lista" hidden>Agrega al menos un invitado antes de guardar.</p>
       <div id="listaInvitados" class="lista-invitados">
         <div class="estado-vacio" id="estado-vacio">
           <p>Aún no hay invitados</p>
