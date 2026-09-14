@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Invitados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <h1>Lista de Invitados</h1>
+    <p class="subtitulo-app">Registra y organiza los asistentes a tu evento</p>
+
+    <section class="tarjeta" aria-labelledby="titulo-evento">
+      <h2 id="titulo-evento">Datos del evento</h2>
+      <div class="campos-evento">
+        <div class="campo">
+          <label for="nombreEvento">Nombre del evento</label>
+          <input type="text" id="nombreEvento" placeholder="Ej. Cumpleaños de Sofía">
+          <p class="error" aria-live="polite" hidden></p>
+        </div>
+        <div class="campo">
+          <label for="fechaEvento">Fecha</label>
+          <input type="date" id="fechaEvento">
+          <p class="error" aria-live="polite" hidden></p>
+        </div>
+        <div class="campo">
+          <label for="lugarEvento">Lugar</label>
+          <input type="text" id="lugarEvento" placeholder="Ej. Salón Azul, Madrid">
+          <p class="error" aria-live="polite" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-invitados">
+      <h2 id="titulo-invitados">Invitados</h2>
+      <div class="control-invitados">
+        <label class="campo">
+          <span class="etiqueta">Cantidad de invitados</span>
+          <input type="number" id="cantidadInvitados" min="1" max="50" value="1">
+        </label>
+        <button type="button" id="agregarInvitados">Agregar invitados</button>
+      </div>
+      <p class="error lista-error" id="error-lista" aria-live="polite" hidden>Agrega al menos un invitado antes de guardar.</p>
+      <div id="listaInvitados" class="lista-invitados">
+        <div class="estado-vacio" id="estado-vacio">
+          <p>Aún no hay invitados</p>
+          <span>Indica la cantidad y pulsa "Agregar invitados" para comenzar</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="barra-guardar">
+      <button type="button" id="guardar">Guardar lista</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
