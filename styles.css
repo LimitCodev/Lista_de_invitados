@@ -248,6 +248,8 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
   border-radius: var(--radius-md);
 }
 
+.estado-vacio[hidden] { display: none; }
+
 .estado-vacio p { margin: 0; font-size: 0.875rem; font-weight: 500; }
 .estado-vacio span { font-size: 0.8rem; color: var(--c-text-ph); }
 

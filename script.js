@@ -44,7 +44,7 @@ function crearBloqueInvitado(numero) {
     </label>
     <label class="campo">
       <span class="etiqueta">Teléfono</span>
-      <input type="tel" class="entrada-telefono" placeholder="(+34) 600 000 000">
+      <input type="tel" class="entrada-telefono" placeholder="(+51) 999 999 999">
       <span class="error" aria-live="polite" hidden></span>
     </label>
     <label class="campo">
@@ -155,8 +155,8 @@ function validarBloque(bloque) {
   }
   if (!telefono.value.trim()) {
     marcarError(telefono, 'Este campo es obligatorio.'); ok = false;
-  } else if (contarDigitos(telefono.value) < 8) {
-    marcarError(telefono, 'Debe tener al menos 8 dígitos.'); ok = false;
+  } else if (contarDigitos(telefono.value) < 9) {
+    marcarError(telefono, 'Debe tener al menos 9 dígitos.'); ok = false;
   }
   if (!relacion.value) {
     marcarError(relacion, 'Selecciona una relación.'); ok = false;
@@ -223,10 +223,27 @@ function exportarInvitados() {
 });
 
 listaInvitados.addEventListener('input', evento => {
-  if (evento.target.closest('.bloque-invitado')) {
-    limpiarErrorCampo(evento.target);
+  const target = evento.target;
+  if (!target.closest('.bloque-invitado')) return;
+
+  if (target.classList.contains('entrada-nombre')) {
+    target.value = target.value.replace(/\d/g, '');
+  } else if (target.classList.contains('entrada-telefono')) {
+    target.value = target.value.replace(/[^\d\s()+\-.]/g, '');
   }
+  limpiarErrorCampo(target);
 });
 
 botonAgregar.addEventListener('click', generarInvitados);
 botonGuardar.addEventListener('click', exportarInvitados);
+
+cantidadInput.addEventListener('input', () => {
+  cantidadInput.value = cantidadInput.value.replace(/\D/g, '');
+});
+
+cantidadInput.addEventListener('keydown', evento => {
+  if (evento.key === 'Enter') {
+    evento.preventDefault();
+    generarInvitados();
+  }
+});
